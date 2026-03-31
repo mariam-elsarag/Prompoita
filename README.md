@@ -84,39 +84,52 @@ NEXTAUTH_SECRET=""
 ## ⚙️ Project Setup
 
 Follow these steps to run the project locally:
-1- Clone the repository:
+
+### 1- MongoDB Setup
+
+Before running the project, make sure you have a running MongoDB instance:
+
+#### Option 1: Local MongoDB
+
+1. Install MongoDB: [https://www.mongodb.com/docs/manual/installation/](https://www.mongodb.com/docs/manual/installation/)
+2. Start the MongoDB service:
+   ```bash
+   MONGODB_URI=mongodb://localhost:27017/prompoita
+   ```
+
+### Option 2: MongoDB Atlas (Cloud)
+
+1. Sign up or log in at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+2. Create a **New Project**.
+3. Inside the project, create a **New Cluster** (select the free tier if needed).
+4. Wait for the cluster to deploy (usually a few minutes).
+5. Add a **database user** with a username and password.
+6. Whitelist your IP address in the **Network Access** settings.
+7. Get your connection string by clicking Connect → Connect your application, and copy the URI:
+
+> ⚠️ Make sure the cluster is running and your IP is whitelisted before starting the project.  
+> If you encounter connection issues, double-check the URI, username/password, and network access settings.
+
+### 2- Clone the repository
 
 ```bash
 git clone <repository_url>
-```
-
-2- Navigate to the project directory:
-
-```bash
 cd <project_directory>
 ```
 
-3- Install dependencies:
+### 3- Install dependencies:
 
 ```bash
 npm install
 ```
 
-4- Start the development server:
+### 4- Start the development server
 
 ```bash
 npm run dev
 ```
 
-## Development (quick)
-
-```bash
-npm run dev
-```
-
-Then open the URL shown in the terminal (usually `http://localhost:3000`).
-
-## Build
+## Build for production
 
 ```bash
 npm run build
