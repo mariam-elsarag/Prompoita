@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Prompoita
 
-## Getting Started
+## 📋 Overview
 
-First, run the development server:
+Prompoita is a platform where users can create, share, and discover prompts. Users can post prompts, browse prompts from other users or guests, copy prompts, and manage their own posts. Authentication is handled via NextAuth.
+
+## ✨ Features
+
+- **User Posts:** Users can create new prompts.
+- **Search & Copy:** Guests or registered users can search for prompts and copy them.
+- **Post Management:** Users can edit or delete their own posts.
+- **Authentication:** User authentication and session management using NextAuth.
+
+---
+
+## 📷 Screenshots & Demo
+
+### Home / Feed
+
+![Home Feed](./screenshots/home-feed.png)  
+Users can browse prompts, search by tags, and copy prompts to their clipboard.
+
+### Profile / User Posts
+
+![Profile Page](./screenshots/profile-page.png)  
+Users can see their own prompts and have the ability to edit or delete them.
+
+### Create / Edit Prompt
+
+![Create Prompt](./screenshots/create-prompt.png)  
+Authenticated users can create new prompts or edit existing ones.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Next.js** – React framework for frontend and server-side rendering
+- **MongoDB & Mongoose** – Database for storing users and posts
+- **NextAuth** – Authentication and session management
+
+---
+
+## Project Structure (overview)
+
+```text
+├── app/
+│   ├── api/                # Next.js API routes
+│   ├── components/         # React components
+│   ├── _lib/               # Data service utilities
+│   └── page.tsx            # Main pages
+├── models/                 # Mongoose models
+├── utils/                  # Helper utilities
+├── .env.local              # Environment variables
+├── package.json
+└── README.md
+```
+
+---
+
+## 🧪 Configure environment variables
+
+Create a `.env` file in the project root (or set these variables in your deployment environment).
+
+```bash
+NEXT_PUBLIC_APP_URL=""
+
+# google auth
+GOOGLE_CLIENT_ID=""
+GOOGLE_CLIENT_SECRET=""
+
+# database
+MONGODB_URI=""
+MONGODB_PASSWORD=""
+
+# config next auth
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_URL_INTERNAL=http://localhost:3000
+NEXTAUTH_SECRET=""
+
+```
+
+---
+
+## ⚙️ Project Setup
+
+Follow these steps to run the project locally:
+1- Clone the repository:
+
+```bash
+git clone <repository_url>
+```
+
+2- Navigate to the project directory:
+
+```bash
+cd <project_directory>
+```
+
+3- Install dependencies:
+
+```bash
+npm install
+```
+
+4- Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development (quick)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then open the URL shown in the terminal (usually `http://localhost:3000`).
 
-## Learn More
+## Build
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Only the creator of a post can delete or edit it.
+- Other users can search for prompts and copy them to the clipboard.
+- Authentication is handled via NextAuth, currently configured with Google OAuth.
